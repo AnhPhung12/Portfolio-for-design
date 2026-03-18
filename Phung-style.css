@@ -1,0 +1,1019 @@
+/* RESET & BASE */
+* {
+  /* Apply universal reset for margin, padding, and box-sizing */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Ensure width/height include padding + border */
+}
+
+body {
+  /* Base body styling */
+  font-family: "Segoe UI", sans-serif; /* Main font */
+  background-color: #0a0a0a; /* Dark page background */
+  color: #ffffff; /* Default text color */
+  line-height: 1.6; /* Improve readability */
+}
+
+/* FULL-PAGE VIDEO BACKGROUND */
+#video-background-full {
+  position: fixed; /* Sticks to the viewport */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+
+  min-width: 100%; /* Expand to full width */
+  min-height: 100%; /* Expand to full height */
+  width: auto; /* Keep aspect ratio */
+  height: auto; /* Keep aspect ratio */
+
+  transform: translate(-50%, -50%); /* Perfect centering */
+  z-index: -10; /* Behind everything */
+  object-fit: cover; /* Prevent distortion */
+}
+
+/* NAVIGATION BAR */
+nav {
+  background-color: transparent; /* Transparent nav */
+  padding: 15px 30px; /* Inner spacing */
+  position: fixed; /* Stays at the top */
+  width: 100%; /* Full width */
+  top: 0; /* Stick to top */
+  z-index: 1000; /* Above content */
+  display: flex; /* Horizontal layout */
+  justify-content: center; /* Center the menu */
+}
+
+nav ul {
+  display: flex; /* Horizontal list */
+  list-style: none; /* Remove bullets */
+  gap: 15px; /* Space between items */
+  background-color: #222; /* Dark rounded menu */
+  padding: 10px 20px; /* Inner padding */
+  border-radius: 50px; /* Fully rounded */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Soft shadow */
+}
+
+nav a {
+  color: #fff; /* White text */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold text */
+  padding: 8px 15px; /* Clickable area */
+  border-radius: 50px; /* Rounded links */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* Smooth hover */
+}
+
+/* Active nav item (white pill) */
+nav a.active {
+  background-color: #fff; /* White background */
+  color: #000; /* Black text */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Glow */
+}
+
+nav a:hover {
+  background-color: #333; /* Dark hover */
+}
+
+/* BASE SECTION LAYOUT */
+section {
+  padding: 80px 20px; /* Space around content */
+  text-align: center; /* Center text */
+  position: relative; /* Sit above video */
+  z-index: 1; /* Above video bg (-10) */
+  background-color: rgba(10, 10, 10, 0.7); /* Transparent dark overlay */
+}
+
+section h2 {
+  font-size: 32px; /* Big title */
+  margin-bottom: 50px; /* Space under header */
+  color: #ffffff; /* White title */
+  font-weight: bold; /* Bold text */
+}
+
+section h2::after {
+  display: block; /* Line break effect */
+  font-size: 20px; /* Subtitle size */
+  margin-top: -15px; /* Pull upwards */
+  color: #ccc; /* Light gray */
+  letter-spacing: 5px; /* Spread letters */
+}
+
+/* HOME SECTION */
+.home-section {
+  background-color: transparent; /* Transparent bg */
+  padding-top: 150px; /* Push down from top */
+  padding-bottom: 100px; /* Bottom spacing */
+  min-height: 100vh; /* Full height */
+
+  display: flex; /* Enable flex layout */
+  flex-direction: column; /* Stack vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+
+  text-align: center; /* Center text */
+  overflow: hidden; /* Prevent overflow */
+}
+
+/* MAIN CONTENT WRAPPER */
+.home-content {
+  position: relative; /* For stacking */
+  z-index: 10; /* Above background */
+  display: flex; /* Vertical stacking */
+  flex-direction: column; /* Column layout */
+  align-items: center; /* Center content */
+  width: 100%; /* Full width */
+}
+
+/* ------------------------------------------- */
+/* VISUAL INTRO BLOCK (photo + name overlay) */
+/* ------------------------------------------- */
+.intro-visuals {
+  position: relative; /* Allows absolute children */
+  width: 400px; /* Container width */
+  height: 250px; /* Container height */
+  display: flex; /* Center children */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-bottom: 20px; /* Spacing after */
+}
+
+/* PROFILE IMAGE (centered) */
+.profile-image {
+  position: absolute; /* On top of name */
+  top: 0; /* Stick to top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Perfect centering */
+  z-index: 20; /* Above name */
+}
+
+.profile-image img {
+  width: 200px; /* Circle size */
+  height: 200px; /* Circle size */
+  object-fit: cover; /* Prevent distortion */
+  border-radius: 50%; /* Circle */
+  border: 5px solid #444; /* Outline */
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1); /* Soft glow */
+}
+
+/* NAME TEXT (offset under the image) */
+.intro-name {
+  position: absolute; /* Floating text */
+  top: 100px; /* Move under the picture */
+  left: 50%; /* Center horizontally */
+  transform: translateX(30px); /* Offset right */
+  z-index: 20; /* Above background */
+  text-align: left; /* Align to left */
+  font-size: 16px; /* Small subtitle? */
+  line-height: 1; /* Tight line spacing */
+}
+
+.intro-name h1 {
+  font-size: 32px; /* Big name */
+  font-weight: 900; /* Heavy bold */
+  margin-left: 50px; /* Offset left */
+  line-height: 1; /* Compact lines */
+  letter-spacing: 2px; /* Spaced letters */
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Second line indentation */
+.intro-name h1:nth-child(2) {
+  margin-left: 90px; /* Larger indent */
+}
+
+/* ROLE TEXT (centered under image) */
+.intro-role {
+  text-align: center; /* Center alignment */
+  margin-bottom: 40px; /* Spacing */
+  position: relative; /* For stacking */
+  margin-top: -60px; /* Pull upward closer to image */
+}
+
+.role-software {
+  font-size: 24px; /* Large text */
+  font-weight: 900; /* Bold */
+  color: #ffffff; /* White */
+  margin-bottom: 5px; /* Small gap */
+  letter-spacing: 6px; /* Spread letters */
+}
+
+.role-engineering {
+  font-size: 18px; /* Slightly smaller */
+  color: #ccc; /* Light gray tone */
+  letter-spacing: 8px; /* Wide letters */
+  position: relative; /* Needed for ::before and ::after */
+  font-weight: 300; /* Lighter style */
+  display: inline-block; /* Keep size tight */
+  text-transform: uppercase; /* ALL CAPS */
+}
+
+/* Horizontal lines left & right of ENGINEERING */
+.role-engineering::before,
+.role-engineering::after {
+  content: ""; /* Decorative line */
+  position: absolute; /* Positioned relative to text */
+  top: 50%; /* Align at middle */
+  width: 50px; /* Line length */
+  height: 2px; /* Line thickness */
+  background-color: #555; /* Gray line */
+  transform: translateY(-50%); /* Perfect vertical centering */
+}
+
+/* Left line */
+.role-engineering::before {
+  right: calc(100% + 10px); /* 10px away from text */
+}
+
+/* Right line */
+.role-engineering::after {
+  left: calc(100% + 10px); /* 10px away from text */
+}
+/* BUTTONS */
+.btn {
+  background-color: #444; /* Dark gray button */
+  color: #fff; /* White text */
+  padding: 15px 50px; /* Size */
+  border-radius: 50px; /* Rounded pill */
+  text-decoration: none; /* Remove underline */
+  display: inline-flex; /* Flex for centering */
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  font-size: 18px; /* Text size */
+  transition: all 0.3s ease; /* Smooth hover */
+  border: none; /* Remove border */
+  cursor: pointer; /* Pointer on hover */
+}
+
+.btn:hover {
+  background-color: #555; /* Slightly lighter */
+  transform: scale(1.05); /* Grow slightly */
+}
+
+/* ABOUT SECTION */
+#about {
+  padding: 80px 20px; /* Spacing */
+}
+
+.about-content {
+  display: flex; /* Side by side */
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Align top */
+  max-width: 1200px; /* Max container */
+  margin: 0 auto; /* Center container */
+  gap: 50px; /* Gap between columns */
+  text-align: left; /* Left text */
+}
+
+/* About text column */
+.about-text {
+  flex: 1 1 55%; /* Take 55% width */
+  margin-top: 2px; /* Tiny top margin */
+}
+
+.about-text p {
+  font-size: 18px; /* Text size */
+  color: #ccc; /* Light gray */
+  line-height: 1.8; /* Line spacing */
+  max-width: none; /* No max width */
+  margin: 0; /* Remove default margin */
+}
+
+/* About video container */
+.about-video-container {
+  flex: 0 0 350px; /* Fixed width */
+  height: 420px; /* Fixed height */
+  border: 1px solid #777; /* Gray border */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Clip overflow */
+  position: relative; /* Position for inner video */
+
+  /* Diagonal cross effect */
+  background:
+    linear-gradient(
+      to top right,
+      transparent calc(50% - 1px),
+      #777 50%,
+      transparent calc(50% + 1px)
+    ),
+    linear-gradient(
+      to top left,
+      transparent calc(50% - 1px),
+      #777 50%,
+      transparent calc(50% + 1px)
+    );
+}
+
+#about-video {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Fill container */
+  object-position: bottom; /* Focus bottom part */
+  position: absolute; /* On top */
+  top: 0; /* Stick top */
+  left: 0; /* Stick left */
+  z-index: 10; /* Above background */
+}
+
+/* PROJECTS */
+.project-list {
+  display: flex; /* Flex layout */
+  flex-wrap: wrap; /* Wrap to next line */
+  justify-content: center; /* Center items */
+  gap: 30px; /* Space between cards */
+  max-width: 1100px; /* Container max width */
+  margin: 0 auto; /* Center container */
+}
+
+.project-card {
+  background-color: #1a1a1a; /* Dark card */
+  padding: 20px; /* Inner spacing */
+  border-radius: 10px; /* Rounded corners */
+  width: auto; /* Flexible width */
+  min-width: 280px; /* Minimum width */
+  max-width: 320px; /* Maximum width */
+  min-height: 250px; /* Minimum height */
+  text-align: left; /* Left align text */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /* Smooth hover */
+  border: 1px solid #333; /* Subtle border */
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Shadow */
+}
+
+.project-image-container {
+  height: 150px; /* Fixed image container */
+  width: 100%; /* Full width */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 15px; /* Space under image */
+  overflow: hidden; /* Clip image */
+  border: 1px solid #333; /* Small border */
+}
+
+.project-image-container img {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: contain; /* Maintain aspect ratio */
+  transition: transform 0.5s ease; /* Smooth scale on hover */
+}
+
+.project-card:hover .project-image-container img {
+  transform: scale(1.05); /* Zoom effect */
+}
+
+.project-card h3 {
+  color: #ffffff; /* White heading */
+  margin-bottom: 10px; /* Space under title */
+}
+
+.project-card p {
+  font-size: 15px; /* Small paragraph */
+  color: #aaa; /* Gray text */
+  margin-bottom: 10px; /* Space under */
+}
+
+.tags {
+  margin-top: 15px; /* Top spacing */
+  font-size: 14px; /* Small text */
+  color: #00aaff; /* Blue tag color */
+}
+
+/* SKILLS SECTION */
+#skills {
+  padding: 80px 20px; /* Padding around section */
+}
+
+.skill-content {
+  display: flex; /* Two-column layout */
+  justify-content: center; /* Center content */
+  align-items: flex-start; /* Align top */
+  max-width: 1100px; /* Max container */
+  margin: 0 auto; /* Center container */
+  gap: 60px; /* Space between columns */
+  text-align: left; /* Left text */
+}
+
+/* Left column: photo */
+.skill-illustration-photo {
+  flex: 0 0 350px; /* Fixed width */
+  height: 350px; /* Fixed height */
+  border: 5px solid #444; /* Dark border */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Clip image */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow */
+}
+
+.skill-illustration-photo img {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Fill container */
+  display: block; /* Remove inline gap */
+}
+
+.skill-details {
+  flex: 1; /* Flexible right column */
+}
+
+.skill-description {
+  font-size: 18px; /* Paragraph text */
+  line-height: 1.8; /* Line spacing */
+  color: #ccc; /* Gray text */
+  margin-bottom: 40px; /* Space under */
+  padding: 20px; /* Inner padding */
+  border-left: 5px solid #00aaff; /* Left accent */
+  background-color: #1a1a1a; /* Dark background */
+  border-radius: 5px; /* Rounded edges */
+}
+
+.skills-tags-grid {
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px; /* Spacing */
+  max-width: 650px; /* Max width */
+}
+
+.skills-tags-grid span {
+  background-color: #1a1a1a; /* Dark background */
+  color: #fff; /* White text */
+  padding: 15px 10px; /* Padding */
+  border-radius: 10px; /* Rounded */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow */
+  font-weight: bold; /* Bold text */
+  font-size: 16px; /* Medium size */
+  text-align: center; /* Center text */
+  border: 1px solid #333; /* Border */
+  transition:
+    transform 0.2s,
+    box-shadow 0.3s,
+    background-color 0.3s; /* Smooth hover */
+}
+
+.skills-tags-grid span:hover {
+  transform: translateY(-5px); /* Lift up */
+  box-shadow:
+    0 0 15px rgba(0, 170, 255, 0.8),
+    0 0 25px rgba(0, 170, 255, 0.5); /* Glow effect */
+  background-color: #2a2a2a; /* Slightly lighter */
+  border-color: #00aaff; /* Blue border */
+}
+/* CONTACT SECTION */
+#contact {
+  padding: 80px 20px; /* Section padding */
+  background-color: #0a0a0a; /* Dark background */
+}
+
+.contact-wrapper {
+  display: flex; /* Side by side form + video */
+  justify-content: center; /* Center horizontally */
+  gap: 40px; /* Space between columns */
+  max-width: 1000px; /* Max width container */
+  margin: 0 auto; /* Center container */
+  background-color: #1a1a1a; /* Dark gray background */
+  border-radius: 15px; /* Rounded corners */
+  padding: 40px; /* Inner padding */
+}
+
+/* Contact form column */
+.contact-form-container {
+  flex: 1 1 50%; /* Take half space */
+  text-align: left; /* Left aligned text */
+}
+
+#contact-form {
+  display: flex; /* Vertical layout */
+  flex-direction: column; /* Stack elements */
+  gap: 10px; /* Gap between inputs */
+}
+
+#contact-form label {
+  color: #fff; /* White label */
+  font-size: 16px; /* Label size */
+  margin-top: 10px; /* Top margin */
+  font-weight: bold; /* Bold label */
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%; /* Full width */
+  padding: 15px; /* Padding */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #0a0a0a; /* Dark input background */
+  color: #fff; /* White text */
+  font-size: 16px; /* Text size */
+  border: 1px solid #333; /* Subtle border */
+}
+
+#contact-form textarea {
+  height: 150px; /* Fixed height for textarea */
+  resize: none; /* Disable resize */
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 8px rgba(0, 170, 255, 0.5); /* Blue glow */
+  border-color: #00aaff; /* Blue border */
+}
+
+.send-btn {
+  background-color: #444; /* Button background */
+  color: #fff; /* White text */
+  padding: 12px 30px; /* Button size */
+  border-radius: 50px; /* Rounded pill */
+  border: none; /* Remove border */
+  cursor: pointer; /* Pointer on hover */
+  margin-top: 20px; /* Top margin */
+  align-self: flex-start; /* Align left */
+}
+
+/* Right column: video */
+.contact-side {
+  flex: 1 1 50%; /* Take half width */
+  position: relative; /* For video positioning */
+  overflow: hidden; /* Clip overflow */
+  background-color: #0a0a0a; /* Dark background */
+  border-radius: 10px; /* Rounded corners */
+  border: 1px solid #333; /* Border */
+  min-height: 300px; /* Minimum height */
+}
+
+#contact-side-video {
+  position: absolute; /* Position over container */
+  top: 0; /* Stick top */
+  left: 0; /* Stick left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: scale-down; /* Fit inside container */
+  z-index: 1; /* Below form elements */
+  transform: none; /* Reset transforms */
+}
+
+/* FOOTER */
+footer {
+  background-color: #0a0a0a; /* Dark footer */
+  color: #ccc; /* Light gray text */
+  padding: 20px; /* Padding */
+  border-top: 1px solid #1a1a1a; /* Subtle top border */
+}
+
+.footer-wrap {
+  max-width: 1000px; /* Max width container */
+  margin: 0 auto; /* Center container */
+  display: flex; /* Flex layout */
+  justify-content: space-between; /* Space between text + socials */
+  align-items: center; /* Vertically align */
+}
+
+.socials a {
+  margin-left: 18px; /* Space between icons */
+  color: #fff; /* White icons */
+  font-size: 24px; /* Icon size */
+  transition: color 0.2s ease; /* Smooth hover */
+}
+
+.socials a:hover {
+  color: #00aaff; /* Hover blue */
+}
+
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column; /* Stack on small screens */
+    align-items: center; /* Center align */
+  }
+
+  .about-text {
+    width: 100%; /* Full width text */
+    margin-top: 0; /* Remove top margin */
+  }
+
+  .about-video-container {
+    width: 100%; /* Full width */
+    max-width: 450px; /* Max width */
+    height: 400px; /* Fixed height */
+    margin-top: 30px; /* Space below text */
+  }
+
+  .contact-wrapper {
+    flex-direction: column; /* Stack form + video */
+    padding: 30px; /* Reduce padding */
+  }
+
+  .contact-side {
+    width: 100%; /* Full width */
+    min-height: 150px; /* Reduce height */
+  }
+
+  .footer-wrap {
+    flex-direction: column; /* Stack footer content */
+    gap: 15px; /* Space between rows */
+  }
+
+  .skill-content {
+    flex-direction: column; /* Stack skills section */
+    align-items: center; /* Center align */
+  }
+
+  .skill-illustration-photo {
+    width: 100%; /* Full width */
+    max-width: 350px; /* Max width */
+    margin-bottom: 30px; /* Space below */
+  }
+
+  .skill-details {
+    width: 100%; /* Full width text */
+    text-align: center; /* Center text */
+  }
+
+  .skills-tags-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    margin: 0 auto; /* Center grid */
+    max-width: 400px; /* Limit width */
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-visuals {
+    height: auto; /* Auto height */
+    width: 100%; /* Full width */
+    margin-bottom: 60px; /* Spacing below */
+  }
+
+  .profile-image {
+    position: static; /* Reset absolute */
+    transform: none; /* Reset transform */
+    margin-bottom: 10px; /* Space below image */
+  }
+
+  .intro-name {
+    position: static; /* Reset absolute */
+    transform: none; /* Reset transform */
+    text-align: center; /* Center text */
+    line-height: 1.1; /* Tighter lines */
+  }
+
+  .intro-name h1 {
+    font-size: 32px; /* Heading size */
+  }
+
+  .intro-left {
+    position: static; /* Reset absolute */
+    transform: none; /* Reset transform */
+    text-align: center; /* Center text */
+    margin-top: 10px; /* Space above */
+  }
+
+  .intro-content {
+    flex-direction: column; /* Stack intro content */
+    gap: 15px; /* Spacing between elements */
+  }
+
+  .intro-role {
+    margin-top: 0; /* Remove top margin */
+  }
+
+  .role-software {
+    font-size: 20px; /* Smaller text */
+  } /* ============================================================
+   PORTFOLIO CSS - UI/UX MODERN GLASSMORPHISM VERSION
+   (Giữ nguyên Structure gốc - Chỉ nâng cấp Visual)
+   ============================================================ */
+
+  /* RESET & BASE */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    /* Đổi font sang Inter hoặc hệ thống hiện đại hơn để hút khách quốc tế */
+    font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* BACKGROUND VIDEO */
+  #video-background-full {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -10;
+    object-fit: cover;
+    opacity: 0.6; /* Giảm nhẹ độ sáng để text nổi bật hơn */
+  }
+
+  /* NAVIGATION - Giữ nguyên Layout của Phụng */
+  nav {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+
+  nav ul li {
+    margin-left: 25px;
+  }
+
+  nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  nav ul li a:hover,
+  nav ul li a.active {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  /* HIỆU ỨNG GLASSMORPHISM CHUNG (Áp dụng cho các Card) */
+  .about-container,
+  .skills-wrap,
+  .project-card,
+  .contact-card {
+    background: rgba(255, 255, 255, 0.03); /* Trong suốt hơn */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Viền kính mỏng */
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition:
+      transform 0.3s ease,
+      border 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  /* SECTIONS SPACING */
+  section {
+    padding: 100px 10% 60px;
+    min-height: auto;
+  }
+
+  h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* ABOUT SECTION - Giữ Structure của Phụng */
+  .about-container {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    gap: 40px;
+  }
+
+  .about-text {
+    flex: 1;
+  }
+  .about-text h3 {
+    color: #00d4ff;
+    margin-bottom: 15px;
+  }
+
+  .about-visual img {
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* SKILLS SECTION - Tinh chỉnh các Tag */
+  .skills-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .skills-tags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .skills-tags-grid span {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .skills-tags-grid span:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-3px);
+    font-weight: bold;
+  }
+
+  /* PROJECT SECTION */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+
+  .project-card {
+    overflow: hidden;
+    padding: 0; /* Remove padding to let image fill the card */
+  }
+
+  .project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .project-info {
+    padding: 25px;
+  }
+  .project-info h3 {
+    margin-bottom: 10px;
+    color: #00d4ff;
+  }
+  .project-tags {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  .project-tags span {
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  .project-card:hover {
+    transform: translateY(-10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  /* CONTACT SECTION */
+  .contact-wrap {
+    display: flex;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .contact-card {
+    flex: 1;
+    padding: 40px;
+    border: none;
+    background: transparent;
+  }
+
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    outline: none;
+  }
+
+  form button {
+    padding: 12px 30px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  form button:hover {
+    background: #00d4ff;
+    color: #fff;
+  }
+
+  /* RESPONSIVE  */
+  @media (max-width: 768px) {
+    .about-container,
+    .skills-content,
+    .contact-wrap {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .about-visual img {
+      width: 200px;
+      height: 200px;
+    }
+
+    section {
+      padding: 80px 5% 40px;
+    }
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #666;
+  }
+
+  .role-engineering {
+    font-size: 16px; /* Smaller text */
+    letter-spacing: 4px; /* Tighter spacing */
+  }
+}
+/* --- HIRE ME BUTTON FIXED --- */
+.hire-me-container {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 9999;
+}
+
+.hire-me-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 25px;
+  background: rgba(255, 255, 255, 0.1); /* glassmorphism effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px; /* border radius modern */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hire-me-btn i {
+  font-size: 18px;
+}
+
+.hire-me-btn:hover {
+  background: #00d4ff; /* neon blue */
+  color: #000;
+  transform: scale(1.1); /* zoom in */
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  border-color: #00d4ff;
+}
+
+/* pulse animation */
+@keyframes pulse-blue {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(0, 212, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0);
+  }
+}
+
+.hire-me-btn {
+  animation: pulse-blue 2s infinite;
+}

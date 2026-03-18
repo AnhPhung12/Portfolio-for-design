@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyen Thi Anh Phung | Technical UI/UX Designer Portfolio</title>
+  <link rel="stylesheet" href="Phung-style.css" />
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <div class="hire-me-container">
+  <a href="Resume.pdf" target="_blank" class="hire-me-btn">
+    <i class="fas fa-file-download"></i> Hire Me
+  </a>
+</div>
+  <video autoplay muted loop id="video-background-full">
+      <source src="galaxy.mp4" type="video/mp4">
+      <source src="galaxy.mp4" type="video/webm">
+  </video>
+
+  <nav>
+    <div class="nav-content">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#skills">Skill</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="home-section">
+    <div class="home-content">
+      <div class="intro-visuals">
+          <div class="profile-image">
+              <img src="me.jpg" alt="Nguyen Thi Anh Phung" /> 
+          </div>
+          <div class="intro-name">
+              <h1>NGUYEN THI</h1>
+              <h1>ANH PHUNG</h1>
+          </div>
+      </div>
+
+      <div class="intro-role">
+          <p class="role-software">TECHNICAL PRODUCT</p>
+          <p class="role-engineering">DESIGNER</p>
+      </div>
+
+      <a href="#contact" class="btn">Work with me →</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <div class="about-p-wrapper">
+                <h3>Design with an Engineering Heart</h3>
+                <p>
+                  I bridge the gap between aesthetic vision and logical engineering. My journey began with a fascination for crafting interfaces and matured into a Software Engineering focus at the University of Greenwich. I don't just 'draw' screens; I architect systems.
+                </p>
+                <br>
+                <p>
+                  With a deep understanding of full-stack development (React, SQL, Python), I ensure that every design choice is robust, accessible, and technically feasible. I focus on high-performance UI/UX that solves real-world challenges.
+                </p>
+                <br>
+                <h3>Goal & Personal Interests</h3>
+                <p>
+                  I am driven by creating impactful digital products in <strong>Fintech and Healthcare</strong>. When I'm not designing, I'm exploring Astronomy or styling my <strong>K-Streetwear</strong> inspired looks. I believe that a great designer is a lifelong learner who understands both data and human psychology.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-video-container">
+            <video autoplay muted loop id="about-video">
+                <source src="coding.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <h2>Featured Work</h2>
+    <div class="project-list">
+      
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="Weather Cast.png" alt="Weather Cast Project Screenshot" /> 
+        </div>
+        <h3>Weather Cast | Modern UI Concept</h3>
+        <p>Designed a context-aware mobile experience featuring a <strong>Modern Glassmorphism UI</strong>. Focused on aesthetic clarity, dynamic visual effects, and seamless responsiveness to ensure weather data is both beautiful and functional.</p>
+        <p class="tags">#UIUX_Design #Glassmorphism #Nextjs</p>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="bank.jpg" alt="Bank Project Screenshot" />
+        </div>
+        <h3>Enterprise Financial Module</h3>
+        <p>Translated complex business requirements into an intuitive B2B interface for major banking institutions. Implemented high-performance UI/UX tailored to rigorous industry specifications using React and modern CSS architecture.</p>
+        <p class="tags">#Fintech #B2B_Design #React</p>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="email.png" alt="Email Project Screenshot" /> 
+        </div>
+        <h3>Python Data Handling Logic</h3>
+        <p>While I focus on design, my technical roots remain strong. Developed a robust backend logic for email management using Python, focusing on clean data handling and efficient search algorithms.</p>
+        <p class="tags">#Python #LogicArchitecture</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Integrated Stack</h2>
+    <div class="skill-content">
+      <div class="skill-illustration-photo">
+        <img src="me1.jpg" alt="Nguyen Thi Anh Phung - Skill Portrait" />
+      </div>
+      
+      <div class="skill-details">
+        <blockquote class="skill-description">
+          "My expertise lies at the intersection of aesthetic design and logical engineering. I leverage my Full-stack foundation to create build-ready UI systems that are visually stunning and technically sound."
+        </blockquote>
+        <div class="skills-tags-grid">
+          <span>UI/UX Design</span><span>Figma</span><span>Glassmorphism</span>
+          <span>Tailwind CSS</span><span>React.js</span><span>TypeScript</span>
+          <span>Python</span><span>Java</span><span>MySQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Let's Connect</h2>
+    <div class="contact-wrapper">
+      <div class="contact-form-container">
+        <form id="contact-form">
+          <label for="name">Your Name*</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required />
+          
+          <label for="email">Your Email*</label>
+          <input type="email" id="email" name="email" placeholder="example@gmail.com" required />
+          
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+          
+          <button type="submit" class="btn send-btn">Send Message</button>
+        </form>
+      </div>
+      
+      <div class="contact-side">
+        <video autoplay muted loop id="contact-side-video">
+          <source src="earth.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-wrap">
+      <p>© AnhPhung 2026 | Technical Designer</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/anh-phung-584296368" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/jyng_12" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/nguyen.aphung.2024" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://github.com/AnhPhung12" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Phung.js"></script>
+</body>
+</html>
